@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 	<project name="Lib_PixelPusher" default="default" basedir=".">
+		<description>
+ 		======================================================================================
+			Processing.org -> Eclipse Ant Builder for Applets and Application			
+ 		======================================================================================
+ 		</description>
+        <property name="project.name" value="Lib_PixelPusher"/>
+ 		<property name="main.class.name" value="Device"/>
+ 		<property name="jar.name" value="PixelPusherJDK16.jar"/>
+ 		<property name="export.dir" value="${maybites.sparck.export.dir}/lib"/>
+ 	
+ 		<!-- 
+ 	 	 		==================================================================
+ 	 	 			DO NOT CHANGE BELOW UNLESS YOU KNOW WHAT YOU ARE DOIN
+ 	 	 		==================================================================-->
+
+ 		<property name="project.bin.dir" value="bin/classes" />
+ 		<property name="project.jar.build.dir" value="bin" />
+
+ 		<target name="default" description="check conditions"> 	
+ 			<!-- create jar inside bin-->
+			<antcall target="jar.build" />
+ 
+ 			<!-- classes to export dir-->
+			<copy todir="${export.dir}">
+				<!-- 
+			    <fileset dir="${project.bin.dir}"/>
+			    -->
+				<resources>
+				  <file file="${project.jar.build.dir}/${jar.name}"/>
+				</resources>
+			</copy>
+		</target>
+ 
+ 		<target name="jar.build">
+ 			<jar jarfile="${project.jar.build.dir}/${jar.name}">
+ 				<fileset dir="${project.bin.dir}">
+ 					<include name="**/*.class" />
+ 				</fileset>
+ 				<manifest>
+ 					<attribute name="Built-By" value="${user.name}" />
+ 					<attribute name="Main-Class" value="${main.class.name}" />
+ 				</manifest>
+ 			</jar>
+ 		</target>
+ 		
+ 	</project>
+
