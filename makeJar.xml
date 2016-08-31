@@ -9,7 +9,7 @@
  		<property name="main.class.name" value="Device"/>
  		<property name="jar.name" value="PixelPusherJDK16.jar"/>
  		<property name="export.dir" value="${maybites.sparck.export.dir}/lib"/>
- 	
+ 
  		<!-- 
  	 	 		==================================================================
  	 	 			DO NOT CHANGE BELOW UNLESS YOU KNOW WHAT YOU ARE DOIN
